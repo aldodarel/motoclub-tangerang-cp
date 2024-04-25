@@ -1,16 +1,15 @@
-<?php 
+<?php
 include "header.php";
-$ambil_berita = $koneksi -> query("SELECT * FROM berita");
+$ambil_berita = $koneksi->query("SELECT * FROM berita");
 $berita = array();
-while ($tiap_berita = $ambil_berita->fetch_assoc())
-{
+while ($tiap_berita = $ambil_berita->fetch_assoc()) {
 	$berita[] = $tiap_berita;
 }
 ?>
 <div class="container mt-5">
-	<h3 data-aos="fade-right">Info Berita Pesantren</h3>
+	<h3 data-aos="fade-right">Berita MotoClub</h3>
 	<hr>
-	<?php foreach ($berita as $key => $value): ?>
+	<?php foreach ($berita as $key => $value) : ?>
 		<div class="row">
 			<a href="detail_berita.php?id=<?php echo $value["id_berita"]; ?>" class="text-decoration-none text-dark">
 				<div class="card mb-3 p-3 berita" data-aos="fade-down">
@@ -21,7 +20,7 @@ while ($tiap_berita = $ambil_berita->fetch_assoc())
 						<div class="col-md-8">
 							<div class="card-body">
 								<h5 class="card-title"><?php echo $value["nama_berita"]; ?></h5>
-								<span class="card-text"><small>Diunggah pada tanggal <?php echo date("d M Y",strtotime($value["tanggal_update"])); ?></small></span>
+								<span class="card-text"><small>Diunggah pada tanggal <?php echo date("d M Y", strtotime($value["tanggal_update"])); ?></small></span>
 							</div>
 						</div>
 					</div>
@@ -30,6 +29,6 @@ while ($tiap_berita = $ambil_berita->fetch_assoc())
 		</div>
 	<?php endforeach ?>
 </div>
-<?php 
+<?php
 include "footer.php";
 ?>

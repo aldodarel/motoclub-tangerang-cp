@@ -1,16 +1,15 @@
-<?php 
+<?php
 include "header.php";
-$ambil_kegiatan = $koneksi -> query("SELECT * FROM kegiatan");
+$ambil_kegiatan = $koneksi->query("SELECT * FROM kegiatan");
 $kegiatan = array();
-while ($tiap_kegiatan = $ambil_kegiatan->fetch_assoc())
-{
+while ($tiap_kegiatan = $ambil_kegiatan->fetch_assoc()) {
 	$kegiatan[] = $tiap_kegiatan;
 }
 ?>
 <div class="container mt-5">
-	<h3 data-aos="fade-right">Info Kegiatan Pesantren</h3>
+	<h3 data-aos="fade-right">Artikel Seputar Otomotif</h3>
 	<hr>
-	<?php foreach ($kegiatan as $key => $value): ?>
+	<?php foreach ($kegiatan as $key => $value) : ?>
 		<div class="row">
 			<a href="detail_kegiatan.php?id=<?php echo $value["id_kegiatan"]; ?>" class="text-decoration-none text-dark">
 				<div class="card mb-3 p-3 berita" data-aos="fade-down">
@@ -29,6 +28,6 @@ while ($tiap_kegiatan = $ambil_kegiatan->fetch_assoc())
 		</div>
 	<?php endforeach ?>
 </div>
-<?php 
+<?php
 include "footer.php";
 ?>

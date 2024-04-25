@@ -1,33 +1,30 @@
-<?php 
+<?php
 include "header.php";
-$ambil_berita = $koneksi -> query("SELECT * FROM berita ORDER BY id_berita DESC LIMIT 3");
+$ambil_berita = $koneksi->query("SELECT * FROM berita ORDER BY id_berita DESC LIMIT 3");
 $berita = array();
-while ($tiap_berita = $ambil_berita->fetch_assoc())
-{
+while ($tiap_berita = $ambil_berita->fetch_assoc()) {
 	$berita[] = $tiap_berita;
 }
 
-$ambil_kegiatan = $koneksi -> query("SELECT * FROM kegiatan ORDER BY id_kegiatan DESC LIMIT 3");
+$ambil_kegiatan = $koneksi->query("SELECT * FROM kegiatan ORDER BY id_kegiatan DESC LIMIT 3");
 $kegiatan = array();
-while ($tiap_kegiatan = $ambil_kegiatan -> fetch_assoc()) 
-{
+while ($tiap_kegiatan = $ambil_kegiatan->fetch_assoc()) {
 	$kegiatan[] = $tiap_kegiatan;
 }
 
-$ambil_galeri = $koneksi -> query("SELECT * FROM galeri ORDER BY id_galeri DESC LIMIT 6");
+$ambil_galeri = $koneksi->query("SELECT * FROM galeri ORDER BY id_galeri DESC LIMIT 6");
 $galeri = array();
-while ($tiap_galeri = $ambil_galeri -> fetch_assoc()) 
-{
+while ($tiap_galeri = $ambil_galeri->fetch_assoc()) {
 	$galeri[] = $tiap_galeri;
 }
 ?>
-<img src="assets/file/Artboard.png" style="width: 100%;">
+<img src="assets/file/1678780319_Intip-Keseruan-Pengguna-Yamaha-XSR-155-Dan-Para-Pecinta-Custom.jpg" style="width: 100%; height: 750px;">
 <section class="container my-5">
 	<div class="text-center">
-		<h3 class="mb-5 fw-bold" data-aos="fade-right">BERITA PESANTREN</h3>
+		<h3 class="mb-5 fw-bold" data-aos="fade-right">BERITA MOTOCLUB</h3>
 	</div>
 	<div class="row">
-		<?php foreach ($berita as $key => $value): ?>
+		<?php foreach ($berita as $key => $value) : ?>
 			<div class="col-md-4 mb-3" data-aos="fade-down">
 				<a href="detail_berita.php?id=<?php echo $value["id_berita"]; ?>" class="text-decoration-none text-dark">
 					<div class="card py-2 px-2 kartu" style="height: 400px;">
@@ -49,13 +46,13 @@ while ($tiap_galeri = $ambil_galeri -> fetch_assoc())
 
 <section class="mb-5 p-5">
 	<div class="container">
-		<h3 class="mb-5 text-center fw-bold" data-aos="fade-right">KEGIATAN PESANTREN</h3>
+		<h3 class="mb-5 text-center fw-bold" data-aos="fade-right">ARTIKEL</h3>
 		<div class="row">
-			<?php foreach ($kegiatan as $kk => $vk): ?>
+			<?php foreach ($kegiatan as $kk => $vk) : ?>
 				<div class="col-md-4 text-center" data-aos="fade-down" style="text-align :justify;">
-					<a href="detail_kegiatan.php?id=<?php echo $vk["id_kegiatan"]; ?>" class="text-decoration-none text-dark">	
+					<a href="detail_kegiatan.php?id=<?php echo $vk["id_kegiatan"]; ?>" class="text-decoration-none text-dark">
 						<div class="card kartu py-2 px-2">
-							<img src="assets/file/<?php echo $vk["foto_kegiatan"]; ?>" class="img-fluid mb-2 card-img-top" style=" height:350px;" >
+							<img src="assets/file/<?php echo $vk["foto_kegiatan"]; ?>" class="img-fluid mb-2 card-img-top" style=" height:350px;">
 							<div class="card-body">
 								<h4 class="card-title"><?php echo $vk["nama_kegiatan"]; ?></h4>
 							</div>
@@ -64,7 +61,7 @@ while ($tiap_galeri = $ambil_galeri -> fetch_assoc())
 				</div>
 			<?php endforeach ?>
 			<div class="text-center mt-3">
-				<a href="semua_kegiatan.php" class="btn fw-bold text-white" style="background-color: #008080;">SEMUA KEGIATAN</a>
+				<a href="semua_kegiatan.php" class="btn fw-bold text-white" style="background-color: #008080;">SEMUA ARTIKEL</a>
 			</div>
 		</div>
 	</div>
@@ -72,19 +69,19 @@ while ($tiap_galeri = $ambil_galeri -> fetch_assoc())
 
 <section class="mb-5 p-5 bg-light shadow">
 	<div class="container">
-		<h3 class="mb-5 text-center fw-bold" data-aos="fade-right">GALLERI PESANTREN</h3>
+		<h3 class="mb-5 text-center fw-bold" data-aos="fade-right">GALERI MOTOCLUB </h3>
 		<div class="row">
-			<?php foreach ($galeri as $kg => $vg): ?>
+			<?php foreach ($galeri as $kg => $vg) : ?>
 				<div class="col-md-4 col-6 galeri text-center pt-3" data-aos="fade-down">
 					<img src="assets/file/<?php echo $vg["foto_galeri"]; ?>" class="img-fluid mb-3" style="height: 350px;">
 				</div>
 			<?php endforeach ?>
 			<div class="text-center mt-3">
-				<a href="semua_galeri.php" class=" btn fw-bold text-white" style="background-color: #008080;">SEMUA GALLERI</a>
+				<a href="semua_galeri.php" class=" btn fw-bold text-white" style="background-color: #008080;">SEMUA GALERI</a>
 			</div>
 		</div>
 	</div>
 </section>
-<?php 
+<?php
 include "footer.php";
 ?>

@@ -1,13 +1,12 @@
-<?php 
+<?php
 include "header.php";
 $id = $_GET["id"];
-$ambil_kegiatan = $koneksi -> query("SELECT * FROM kegiatan WHERE id_kegiatan = '$id'");
+$ambil_kegiatan = $koneksi->query("SELECT * FROM kegiatan WHERE id_kegiatan = '$id'");
 $kegiatan = $ambil_kegiatan->fetch_assoc();
 
-$ambil_berita1 = $koneksi -> query("SELECT * FROM berita ORDER BY id_berita DESC LIMIT 4");
+$ambil_berita1 = $koneksi->query("SELECT * FROM berita ORDER BY id_berita DESC LIMIT 4");
 $berita1 = array();
-while ($tiap_berita1 = $ambil_berita1->fetch_assoc())
-{
+while ($tiap_berita1 = $ambil_berita1->fetch_assoc()) {
 	$berita1[] = $tiap_berita1;
 }
 // echo "<pre>";
@@ -21,15 +20,15 @@ while ($tiap_berita1 = $ambil_berita1->fetch_assoc())
 		<div class="col-md-8" data-aos="fade-up">
 			<img src="assets/file/<?php echo $kegiatan["foto_kegiatan"]; ?>" style="width: 100%; ">
 			<p class="mt-5" style="text-align: justify;">
-				<?php echo $kegiatan["keterangan_kegiatan"]; ?>	
+				<?php echo $kegiatan["keterangan_kegiatan"]; ?>
 			</p>
 		</div>
 		<div class="col-md-4" data-aos="fade-left">
 			<div class="card px-3">
 				<h5 class="text-center mt-3 fw-bold">Berita terbaru</h5>
-				<hr>	
+				<hr>
 				<div class="row mb-3">
-					<?php foreach ($berita1 as $key => $value): ?>
+					<?php foreach ($berita1 as $key => $value) : ?>
 						<a href="detail_berita.php?id=<?php echo $value["id_berita"] ?>" class="text-decoration-none text-dark">
 							<div class="samping d-flex p-3">
 								<div class="col-3 text-center">
@@ -37,7 +36,7 @@ while ($tiap_berita1 = $ambil_berita1->fetch_assoc())
 								</div>
 								<div class="col-9">
 									<h6><?php echo $value["nama_berita"]; ?></h6>
-									<span class="small ms-1"><?php echo date("d M Y",strtotime($value["tanggal_update"])); ?></span>
+									<span class="small ms-1"><?php echo date("d M Y", strtotime($value["tanggal_update"])); ?></span>
 									<hr>
 								</div>
 							</div>
@@ -46,9 +45,9 @@ while ($tiap_berita1 = $ambil_berita1->fetch_assoc())
 				</div>
 			</div>
 		</div>
-	</div> 
+	</div>
 </div>
 
-<?php 
+<?php
 include "footer.php";
 ?>
